@@ -31,5 +31,13 @@
                         <result name="succ">/ognl/params.jsp</result>
                 </action>
         </package>
-
+        <package name="tags" namespace="/tags" extends="struts-default">
+                <default-action-ref name="index" />
+                <action name="index">
+                        <result>/tags/index.jsp</result>
+                </action>
+                <action name="tag" class="com.hx.tags.Tag">
+                        <result>/tags/tag.jsp</result>
+                </action>
+        </package>
 </struts>
