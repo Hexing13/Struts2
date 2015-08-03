@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+        <constant name="struts.devMode" value="false" />
+        <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+        <package name="com.struts.user_action" namespace="/" extends="struts-default">
+                <default-action-ref name="user_"/>
+                <global-results>
+                        <result name="main">/action/index.jsp</result>
+                </global-results>
+                <action name="user_">
+                        <result>/action/user_.jsp</result>
+                </action>
+                <action name="param" class="com.hx.action.user_action1">
+                        <result name="succ">/action/user_add.jsp</result>
+                        <result name="error">/action/user_error.jsp</result>
+                        <!--<result name="succ">${r}</result>-->
+                </action>
+        </package>
+
+        <package name="com.hx.ognl.ognl1" namespace="/ognl" extends="struts-default">
+                <default-action-ref name="index1"/>
+                <action name="index1">
+                        <result>/ognl/index1.jsp</result>
+                </action>
+                <action name="params" class="com.hx.ognl.ognl1">
+                        <result name="succ">/ognl/params.jsp</result>
+                </action>
+        </package>
+
+</struts>
